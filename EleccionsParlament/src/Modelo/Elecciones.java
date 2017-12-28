@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Elecciones implements ModeloElecciones {
+	//en actualizarEscrutinio posa l'enunciat que s'ha d'actualitzar els vots totals, se que es pot calcular per� no se si volen un atribut. 
 	private Map<String, Circunscripcion> resultados;
 	private int liston;
 	
@@ -32,22 +33,22 @@ public class Elecciones implements ModeloElecciones {
 		return false;
 	}
 	
-	public Iterable<Entry<String,Integer>> escañosCircunscripcion(String circunscripción,
+	public Iterable<Entry<String,Integer>> escanosCircunscripcion(String circunscripcion,
 			MetodoCalculo m){
-		return m.escañosPorCandidatura(resultados.get(circunscripción).getVotaciones().entrySet(),
-				liston, resultados.get(circunscripción).getVotosTotalesCircunscripcion(), 
-				resultados.get(circunscripción).getDiputados());
+		return m.escanosPorCandidatura(resultados.get(circunscripcion).getVotaciones().entrySet(),
+				liston, resultados.get(circunscripcion).getVotosTotalesCircunscripcion(), 
+				resultados.get(circunscripcion).getDiputados());
 	}
 	
 	//els dos metodes d'escanys no els he comprovat pero ho he escrit perque no dones error
-	public Iterable<Entry<String,Integer>> escañosTotales(MetodoCalculo m){
-		Map<String, Integer> mapEscaños = new HashMap<String, Integer>();
+	public Iterable<Entry<String,Integer>> escanosTotales(MetodoCalculo m){
+		Map<String, Integer> mapEscanos = new HashMap<String, Integer>();
 		for(Map.Entry<String, Circunscripcion> entry: this.resultados.entrySet()) {
-			for(Map.Entry<String, Integer> i: escañosCircunscripcion(entry.getKey(), m)) {
-				mapEscaños.put(i.getKey(), i.getValue() + mapEscaños.get(i.getKey()));
+			for(Map.Entry<String, Integer> i: escanosCircunscripcion(entry.getKey(), m)) {
+				mapEscanos.put(i.getKey(), i.getValue() + mapEscanos.get(i.getKey()));
 			}
 		}
-		return mapEscaños.entrySet();
+		return mapEscanos.entrySet();
 	}
 	
 	public int getVotosTotales(){

@@ -34,11 +34,11 @@ public class MetodoHare implements MetodoCalculo {
 			}
 		}
 		List<String> escanosResiduo = new ArrayList<String>();
-		while(escanosRepartidos!=totalescanos){
+		while(escanosRepartidos!=totalescanos && escanosResiduo.size()<escanos.size()){
 			int max=0;
 			String candidaturaMax="";
 			for(Entry<String, Integer> candidatura: residuos.entrySet()){
-				if (candidatura.getValue()>max && !escanosResiduo.contains(candidatura.getKey())){
+				if (candidatura.getValue()>=max && !escanosResiduo.contains(candidatura.getKey())){
 					candidaturaMax = candidatura.getKey();
 					max = candidatura.getValue();
 				}

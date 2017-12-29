@@ -49,6 +49,7 @@ public class p {
 		el.actualizarEscrutinio("Barcelona", "DIALEG", 31000);
 		el.actualizarEscrutinio("Barcelona", "CUP", 10000);
 		System.out.println(el.escanosCircunscripcion("Barcelona", new MetodoHare()));
+		System.out.println(el.escanosTotales(new MetodoHare()));
 	}
 
 }

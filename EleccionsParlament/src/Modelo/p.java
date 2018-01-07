@@ -7,6 +7,7 @@ public class p {
 
 	public static void main(String[] args) {
 		//Només he fet aquesta classe per mirar si funcionaven els metodes
+		MetodoCalculo met = new MetodoHare();
 		Map<String, Integer> votacionesB = new HashMap<String, Integer>();
 		votacionesB.put("PP", 4);
 		votacionesB.put("Junts", 10);
@@ -39,6 +40,16 @@ public class p {
 		System.out.println(m.get("Tarragona").getVotaciones());
 		System.out.println(m.get("Lleida").getVotaciones());
 		System.out.println(desembre.getVotosTotales());
+		System.out.println("");
+		Elecciones el = new Elecciones(LeerDatos.leerArchivoCircunscripciones("datosEleccionesParlament2017.csv"), 3);
+		el.actualizarEscrutinio("Barcelona", "PSC-PSOE", 391000);
+		el.actualizarEscrutinio("Barcelona", "PP", 311000);
+		el.actualizarEscrutinio("Barcelona", "Cs", 184000);
+		el.actualizarEscrutinio("Barcelona", "ERC-CatSi", 73000);
+		el.actualizarEscrutinio("Barcelona", "DIALEG", 31000);
+		el.actualizarEscrutinio("Barcelona", "CUP", 10000);
+		System.out.println(el.escanosCircunscripcion("Barcelona", new MetodoHare()));
+		System.out.println(el.escanosTotales(new MetodoHare()));
 	}
 
 }

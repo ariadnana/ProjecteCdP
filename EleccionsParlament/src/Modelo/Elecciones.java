@@ -45,7 +45,11 @@ public class Elecciones implements ModeloElecciones {
 		Map<String, Integer> mapEscanos = new HashMap<String, Integer>();
 		for(Map.Entry<String, Circunscripcion> entry: this.resultados.entrySet()) {
 			for(Map.Entry<String, Integer> i: escanosCircunscripcion(entry.getKey(), m)) {
-				mapEscanos.put(i.getKey(), i.getValue() + mapEscanos.get(i.getKey()));
+				if(mapEscanos.containsKey(i.getKey())){
+					mapEscanos.put(i.getKey(), i.getValue() + mapEscanos.get(i.getKey()));
+				}else{
+					mapEscanos.put(i.getKey(), i.getValue());
+				}
 			}
 		}
 		return mapEscanos.entrySet();

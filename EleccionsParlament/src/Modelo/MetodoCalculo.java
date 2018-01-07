@@ -6,5 +6,5 @@ public interface MetodoCalculo {
 	public Iterable<Entry<String,Integer>> 
 		escanosPorCandidatura(Iterable<Entry<String,Integer>> escrutinio,
 	int listonElectoral, int totalvotos,
-	int totalescaños);
+	int totalescanos);
 }

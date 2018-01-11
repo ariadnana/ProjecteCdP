@@ -1,13 +1,11 @@
 package Modelo;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class Elecciones implements ModeloElecciones {
-	//en actualizarEscrutinio posa l'enunciat que s'ha d'actualitzar els vots totals, se que es pot calcular però no se si volen un atribut. 
+	//en actualizarEscrutinio posa l'enunciat que s'ha d'actualitzar els vots totals, se que es pot calcular perï¿½ no se si volen un atribut. 
 	private Map<String, Circunscripcion> resultados;
 	private int liston;
 	

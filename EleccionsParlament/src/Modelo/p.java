@@ -9,10 +9,10 @@ public class p {
 		//Només he fet aquesta classe per mirar si funcionaven els metodes
 		MetodoCalculo met = new MetodoHare();
 		Map<String, Integer> votacionesB = new HashMap<String, Integer>();
-		votacionesB.put("PP", 4);
-		votacionesB.put("Junts", 10);
-		votacionesB.put("E", 5);
-		Circunscripcion B = new Circunscripcion("Barcelona", 85, votacionesB);
+		votacionesB.put("PP", 32);
+		votacionesB.put("Junts", 60);
+		votacionesB.put("E", 20);
+		Circunscripcion B = new Circunscripcion("Barcelona", 7, votacionesB);
 		System.out.println(votacionesB);
 		Map<String, Integer> votacionesT = new HashMap<String, Integer>();
 		votacionesT.put("PP", 3);
@@ -33,23 +33,29 @@ public class p {
 		Elecciones desembre = new Elecciones(m, 3);
 		System.out.println(desembre.getVotosTotales());
 		System.out.println("");
-		desembre.actualizarEscrutinio("Barcelona", "PP", 10);
+		/*desembre.actualizarEscrutinio("Barcelona", "PP", 10);
 		desembre.actualizarEscrutinio("Tarragona", "E", 20);
 		desembre.actualizarEscrutinio("Lleida", "Junts", 5);
 		System.out.println(m.get("Barcelona").getVotaciones());
 		System.out.println(m.get("Tarragona").getVotaciones());
 		System.out.println(m.get("Lleida").getVotaciones());
 		System.out.println(desembre.getVotosTotales());
+		System.out.println("");*/
+		System.out.println(desembre.escanosCircunscripcion("Barcelona", new MetodoHondt()));
 		System.out.println("");
+		
 		Elecciones el = new Elecciones(LeerDatos.leerArchivoCircunscripciones("datosEleccionesParlament2017.csv"), 3);
 		el.actualizarEscrutinio("Barcelona", "PSC-PSOE", 391000);
 		el.actualizarEscrutinio("Barcelona", "PP", 311000);
 		el.actualizarEscrutinio("Barcelona", "Cs", 184000);
 		el.actualizarEscrutinio("Barcelona", "ERC-CatSi", 73000);
 		el.actualizarEscrutinio("Barcelona", "DIALEG", 31000);
-		el.actualizarEscrutinio("Barcelona", "CUP", 10000);
+		el.actualizarEscrutinio("Barcelona", "CUP", 10000);	
 		System.out.println(el.escanosCircunscripcion("Barcelona", new MetodoHare()));
 		System.out.println(el.escanosTotales(new MetodoHare()));
+		System.out.println("");
+		System.out.println(el.escanosCircunscripcion("Barcelona", new MetodoHondt()));
+		System.out.println(el.escanosTotales(new MetodoHondt()));
 	}
 
 }

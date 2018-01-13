@@ -73,7 +73,7 @@ public class PanelPestana extends JTabbedPane {
 	private JPanel crearPanelCircun(String[] str) {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
-		panel.setBorder(new CompoundBorder(new TitledBorder("Circunscripción"), 
+		panel.setBorder(new CompoundBorder(new TitledBorder("Circunscripcion"), 
 				new EmptyBorder(20, 5, 20, 5)));
 		GridBagConstraints gbc = new GridBagConstraints();
 	    	gbc.gridx = 0;
@@ -94,7 +94,7 @@ public class PanelPestana extends JTabbedPane {
 	    	gbc.gridx = 0;
 	    	gbc.gridy = 0;
 	    	gbc.fill = GridBagConstraints.HORIZONTAL;
-		panel.add(new JLabel("Circunscripción: "), gbc);
+		panel.add(new JLabel("Circunscripcion: "), gbc);
 		gbc.gridy++;
 		panel.add(new JLabel("Candidatura: "), gbc);
 		gbc.gridy++;

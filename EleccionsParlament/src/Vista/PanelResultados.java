@@ -18,7 +18,7 @@ public class PanelResultados extends JScrollPane {
 	private static int anchura = 1100;
 	private static int altura = 400;
 	private static String etiquetaEjeDominio = "Candidaturas";
-	private static String etiquetaEjeRango = "Escaños";
+	private static String etiquetaEjeRango = "Escanos";
 	private ChartPanel chartPanel;
 	private DefaultCategoryDataset dataSet;
 

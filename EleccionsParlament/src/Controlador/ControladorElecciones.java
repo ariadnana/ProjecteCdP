@@ -83,7 +83,8 @@ public class ControladorElecciones {
     }
     
     protected void actualitzaResultats(){
-    	
+    	v.getPanelPestana().getpCircun().setResultados(m.escanosCircunscripcion(circ, metodo));
+    	v.getPanelPestana().getpGeneral().setResultados(m.escanosTotales(metodo));
     }
     
     

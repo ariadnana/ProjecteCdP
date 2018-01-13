@@ -17,7 +17,7 @@ public class ControladorPrueba {
     private int liston;
     private boolean isEditable = false;
     
-    public ControladorElecciones(VistaElecciones vista/*, ModeloElecciones modelo*/) {
+    public ControladorPrueba(VistaElecciones vista/*, ModeloElecciones modelo*/) {
         super();
         this.vista = vista;
         //this.modelo = modelo;

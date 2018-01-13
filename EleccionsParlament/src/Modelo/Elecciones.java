@@ -81,6 +81,10 @@ public class Elecciones implements ModeloElecciones {
 	public int getListon() {
 		return liston;
 	}
+
+	public void setListon(int l) {
+		liston=l;
+	}
 	
 	
 	

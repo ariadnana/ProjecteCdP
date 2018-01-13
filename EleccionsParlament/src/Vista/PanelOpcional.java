@@ -78,6 +78,10 @@ public class PanelOpcional extends JPanel{
 		comboBox.addItemListener(l);
 	}
 	
+	public String getMetodo(){
+		return comboBox.getItemAt(comboBox.getSelectedIndex());
+	}
+	
 	public void addOyenteListonBtn(ActionListener l) {
 		listonBtn.addActionListener(l);
 	}
@@ -86,8 +90,8 @@ public class PanelOpcional extends JPanel{
 		listonBtn.setText(st); //Editar o Aceptar
 	}
 	
-	public String getListonDisplay() {
-		return liston.getText();
+	public int getListonDisplay() {
+		return Integer.parseInt(liston.getText());
 	}
 
 	public void setListonDisplay(String st) {

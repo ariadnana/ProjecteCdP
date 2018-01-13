@@ -152,14 +152,23 @@ public class PanelPestana extends JTabbedPane {
 	public void addOyenteCircunsActual(ItemListener l) {
 		combo1.addItemListener(l);
 	}
-	public void addOyenteEscrutinioActual(ItemListener l) {
+	public String getCircunsActual(){
+		return combo1.getItemAt(combo1.getSelectedIndex());
+	}
+	/*public void addOyenteEscrutinioActual(ItemListener l) {
 		combo2.addItemListener(l);
+	}*/
+	public String getCircunsEscrutini(){
+		return combo2.getItemAt(combo2.getSelectedIndex());
 	}
 	public String getCandidaturaTxt() {
 		return candidaturaTxt.getText();
 	}
 	public String getVotosTxt() {
 		return votosTxt.getText();
+	}
+	public int getVotos() {
+		return  Integer.parseInt(votosTxt.getText());
 	}
 	public void addOyenteAceptarBtn(ActionListener l) {
 		aceptarBtn.addActionListener(l);

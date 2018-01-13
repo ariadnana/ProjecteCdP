@@ -8,4 +8,5 @@ public interface ModeloElecciones {
 	public Iterable<Entry<String,Integer>> escanosCircunscripcion(String circunscripcion,
 			MetodoCalculo m); 
 	public Iterable<Entry<String,Integer>> escanosTotales(MetodoCalculo m);
+	public void setListon(int l);
 }

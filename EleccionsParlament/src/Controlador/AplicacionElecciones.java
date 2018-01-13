@@ -17,7 +17,7 @@ public class AplicacionElecciones {
 		Iterable<Map.Entry<String,Integer>> m1 = el.escanosCircunscripcion("Barcelona", new MetodoHondt());
 		Iterable<Map.Entry<String,Integer>> m2 = el.escanosTotales(new MetodoHondt());
 		VistaElecciones p = new VentanaElecciones(list, m1, m2);		
-		ControladorElecciones controlador = new ControladorElecciones(p);
+		ControladorElecciones controlador = new ControladorElecciones(p, el);
 		p.setVisible(true);
 	}
 

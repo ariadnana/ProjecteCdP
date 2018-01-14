@@ -48,7 +48,7 @@ public class PanelOpcional extends JPanel{
         gbc.weightx = 1;
         liston = new JTextField(10);
         liston.setText("3");
-        liston.setEditable(true);
+        liston.setEditable(false);
         pan.add(liston, gbc);
         
         //% Texto
@@ -90,8 +90,8 @@ public class PanelOpcional extends JPanel{
 		listonBtn.setText(st); //Editar o Aceptar
 	}
 	
-	public int getListonDisplay() {
-		return Integer.parseInt(liston.getText());
+	public String getListonDisplay() {
+		return liston.getText();
 	}
 
 	public void setListonDisplay(String st) {

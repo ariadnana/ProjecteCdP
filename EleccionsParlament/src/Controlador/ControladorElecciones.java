@@ -6,6 +6,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import Modelo.Elecciones;
 import Modelo.InfoCircunscripcion;
 import Modelo.LeerDatos;
@@ -20,6 +23,7 @@ public class ControladorElecciones {
     private ModeloElecciones m;
     private MetodoCalculo metodoHondt, metodoHare, metodo;
     private String circ;
+    private boolean isEditable = false;
     
     public ControladorElecciones(VistaElecciones nv, ModeloElecciones nm){
     	super();
@@ -68,7 +72,7 @@ public class ControladorElecciones {
     }
     
     protected void teclaListonPulsada(){
-        m.setListon(v.getPanelOpcional().getListonDisplay());
+    	listonBtnPulsado();
         actualitzaResultats();
     }
     
@@ -86,6 +90,38 @@ public class ControladorElecciones {
     protected void actualitzaResultats(){
     	v.getPanelPestana().getpCircun().setResultados(m.escanosCircunscripcion(circ, metodo));
     	v.getPanelPestana().getpGeneral().setResultados(m.escanosTotales(metodo));
+    }
+    
+    protected void listonBtnPulsado() {
+        String intento = v.getPanelOpcional().getListonDisplay();
+        int numDisplay = -1;
+        try{
+            numDisplay= Integer.parseInt(intento);
+            if(isEditable) {
+                if(numDisplay > 0 && numDisplay < 100) {
+                    m.setListon(numDisplay);
+                    v.getPanelOpcional().setListonEditable(false);
+                    v.getPanelOpcional().setListonBtnTxt("Editar");
+                    isEditable = false;
+                }else {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            "Porfavor introduce un valor entero entre el 0 y 100",
+                            "Valor Incorrecto",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }else{
+                v.getPanelOpcional().setListonEditable(true);
+                v.getPanelOpcional().setListonBtnTxt("Aceptar");;
+                isEditable = true;    
+            }
+        
+        }catch(NumberFormatException nFE){
+            JOptionPane.showMessageDialog(new JFrame(),
+                    "Porfavor introduce un valor entero entre el 0 y 100",
+                    "Valor Incorrecto",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
     
     

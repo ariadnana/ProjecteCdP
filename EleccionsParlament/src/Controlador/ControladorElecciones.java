@@ -74,6 +74,7 @@ public class ControladorElecciones {
     
     protected void canviCircunscripcio(String c){
     	circ=c;
+    	v.getPanelPestana().setTituloCircun(c);
     	actualitzaResultats();
     }
     

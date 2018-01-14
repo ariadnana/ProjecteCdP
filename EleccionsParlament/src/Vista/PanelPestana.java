@@ -140,8 +140,8 @@ public class PanelPestana extends JTabbedPane {
         return panel;
 	}
 	
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setTituloCircun(String titulo) {
+		pCircun.setTitulo("Elecciones 2017 Catalunya - " + titulo);
 	}
 	public void addOyenteCircunsActual(ItemListener l) {
 		combo1.addItemListener(l);

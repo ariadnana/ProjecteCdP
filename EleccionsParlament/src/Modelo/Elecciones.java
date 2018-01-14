@@ -25,7 +25,7 @@ public class Elecciones implements ModeloElecciones {
 	public boolean actualizarEscrutinio(String circunscripcion, 
 			String candidatura, int votos){
 		if(circunscripcion != null && resultados.containsKey(circunscripcion) && candidatura != null && 
-				resultados.get(circunscripcion).getVotaciones().containsKey(candidatura) && votos > 0) {
+				resultados.get(circunscripcion).getVotaciones().containsKey(candidatura) && votos >= 0) {
 			resultados.get(circunscripcion).getVotaciones().put(candidatura, votos);
 			return true;
 		}

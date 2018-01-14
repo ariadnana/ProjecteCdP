@@ -18,7 +18,7 @@ public class MetodoHare implements MetodoCalculo {
 	@Override
 	public Iterable<Entry<String, Integer>> escanosPorCandidatura(Iterable<Entry<String, Integer>> escrutinio,
 			int listonElectoral, int totalvotos, int totalescanos) {
-		int cociente = totalvotos/totalescanos;
+		int cociente = (int) Math.ceil((double)totalvotos/totalescanos);
 		int escanosRepartidos = 0;
 		int liston = totalvotos*listonElectoral/100;
 		Map<String, Integer> escanos = new HashMap<String, Integer>();
@@ -33,19 +33,25 @@ public class MetodoHare implements MetodoCalculo {
 				residuos.put(candidatura.getKey(), 0);
 			}
 		}
-		List<String> escanosResiduo = new ArrayList<String>();
-		while(escanosRepartidos!=totalescanos && escanosResiduo.size()<escanos.size()){
-			int max=0;
-			String candidaturaMax="";
-			for(Entry<String, Integer> candidatura: residuos.entrySet()){
-				if (candidatura.getValue()>=max && !escanosResiduo.contains(candidatura.getKey())){
-					candidaturaMax = candidatura.getKey();
-					max = candidatura.getValue();
+		if(totalvotos!=0){
+			List<String> escanosResiduo = new ArrayList<String>();
+			while(escanosRepartidos!=totalescanos && escanosResiduo.size()<escanos.size()){
+				int max=0;
+				String candidaturaMax="";
+				for(Entry<String, Integer> candidatura: residuos.entrySet()){
+					if (candidatura.getValue()>max && !escanosResiduo.contains(candidatura.getKey())){
+						candidaturaMax = candidatura.getKey();
+						max = candidatura.getValue();
+					}
+				}
+				if(candidaturaMax.equals("")){
+					escanosResiduo = new ArrayList<String>();
+				} else {
+					escanos.put(candidaturaMax, escanos.get(candidaturaMax)+1);
+					escanosRepartidos ++;
+					escanosResiduo.add(candidaturaMax);
 				}
 			}
-			escanos.put(candidaturaMax, escanos.get(candidaturaMax)+1);
-			escanosResiduo.add(candidaturaMax);
-			escanosRepartidos ++;
 		}
 		return escanos.entrySet();
 	}

@@ -48,7 +48,7 @@ public class PanelOpcional extends JPanel{
         gbc.weightx = 1;
         liston = new JTextField(10);
         liston.setText("3");
-        liston.setEditable(false);
+        liston.setEditable(true);
         pan.add(liston, gbc);
         
         //% Texto

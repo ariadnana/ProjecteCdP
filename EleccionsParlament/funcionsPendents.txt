@@ -1,5 +1,0 @@
-VentanaElecciones
--addOyenteTeclaListon(ActionListener l):afegeix el listener l al botó d'afegir el liston
--getListon():retorna un enter amb el liston entrat per l'usuari
--addOyenteTeclaHondt(ActionListener l):afegeix el listener l al botó de mètode Hondt
--addOyenteTeclaHare(ActionListener l):afegeix el listener l al botó del mètode Hare

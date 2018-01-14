@@ -136,12 +136,6 @@ public class PanelPestana extends JTabbedPane {
 		panel.add(pGeneral, gbc);
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		
-		gbc.gridwidth = GridBagConstraints.NORTH;
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.gridheight = 1;
-		panel.add(crearPanelEscrutinio(str), gbc);
 
         return panel;
 	}
